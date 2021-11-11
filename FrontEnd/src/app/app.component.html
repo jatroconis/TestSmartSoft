@@ -1,0 +1,154 @@
+<nav class="navbar navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="https://media-exp1.licdn.com/dms/image/C561BAQF82jUyVRbaMQ/company-background_10000/0/1610640219711?e=2159024400&v=beta&t=9_0HeaCWosFSt6OyDQjargbeteWlyF04aP8ru88oYOs" alt="" width="30" height="24" class="d-inline-block align-text-top">
+      Prueba Smart Soft
+    </a>
+  </div>
+</nav>
+
+<!-- parte de cliente -->
+<div class="mainform">
+  
+  <div class="formclient m-2">
+    <h2>Form Cliente</h2>
+    <form [formGroup]="clienteForm" >
+  
+    <div class="mb-3 row">
+      <label for="lcnombre" class="col-sm-2 col-form-label">Nombre</label>
+      <div class="col-sm-10">
+        <input type="text"  formControlName="nombre" class="form-control" id="lcnombre" >
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <label for="lcapellido" class="col-sm-2 col-form-label">Apellido</label>
+      <div class="col-sm-10">
+        <input type="text" formControlName="apellido" class="form-control" id="lcapellido">
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <label for="lcdireccion" class="col-sm-2 col-form-label">Direccion</label>
+      <div class="col-sm-10">
+        <input type="text" formControlName="direccion" class="form-control" id="lcdireccion">
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <label for="lcfechanac" class="col-sm-2 col-form-label">Fecha Nacimiento</label>
+      <div class="col-sm-10">
+        <input type="date" formControlName="fechaNacimiento" class="form-control" id="lcfechanac">
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <label for="lctelefono" class="col-sm-2 col-form-label">Telefono</label>
+      <div class="col-sm-10">
+        <input type="text"  formControlName="telefono"  class="form-control" id="lctelefono">
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <label for="lcemail" class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-10">
+        <input type="email"  formControlName="email" class="form-control" id="lcemail">
+      </div>
+    </div>
+
+    <button type="button" class="btn btn-primary" (click)="showDataCliente()">Register User</button>
+
+    </form>
+  </div>
+  
+  
+  
+  <!-- parte de factura -->
+  <div class="m-3 formfac">
+    <h2>Form Factura</h2>
+    <form [formGroup]="facturaForm">
+
+      <div class="mb-3 row">
+        <label for="lffecha" class="col-sm-2 m-1 col-form-label">Fecha Factura</label>
+        <div class="col-sm-10">
+          <input type="date" formControlName="fecha" class="form-control" id="lffecha">
+        </div>
+      </div>
+
+      <h4>Clientes</h4>
+      <select (change)="myFunction($event)" class="form-select" aria-label="Default select example">
+        <option value=0>
+          Seleccione
+        </option>
+        <option  *ngFor="let cliente of clientes " [value]="cliente.id" >
+          {{cliente.nombre}}
+        </option>
+        
+      </select>
+
+      <button type="button" class="btn btn-primary"   (click)="showDataFactura()" class="btn btn-primary mt-3">Register Factura</button>
+    </form>
+  
+  </div>
+
+  
+  
+  
+  <!-- parte de detalle -->
+  
+  <div class="formdetalle m-2">
+    <h2>Form Detalle</h2>
+    <form [formGroup]="detalleForm">
+
+      <div class="mb-3 row">
+        <label for="ldcantidad" class="col-sm-2 m-2 col-form-label">Cantidad</label>
+        <div class="col-sm-10">
+          <input type="number" formControlName="cantidad"  class="form-control" id="ldcantidad">
+        </div>
+      </div>
+
+      <div class="mb-3 row">
+        <label for="ldprecio" class="col-sm-2 m-2 col-form-label">Precio</label>
+        <div class="col-sm-10">
+          <input type="number" formControlName="precio"  class="form-control" id="ldprecio">
+        </div>
+      </div>
+  
+    </form>
+  </div>
+  
+  
+  
+  <!-- parte de producto -->
+  
+  <div class="formproduct m-2">
+    <h2>Form Producto</h2>
+    <form [formGroup]="productoForm">
+
+      <div class="mb-3 row">
+        <label for="lpnombre" class="col-sm-2 m-1 col-form-label">Nombre</label>
+        <div class="col-sm-10">
+          <input type="text" formControlName="nombre" formControlName="nombre" class="form-control" id="lpnombre">
+        </div>
+      </div>
+
+      <div class="mb-3 row">
+        <label for="lpprecio" class="col-sm-2 m-1 col-form-label">Precio</label>
+        <div class="col-sm-10">
+          <input type="number" formControlName="precio" class="form-control" id="lpprecio">
+        </div>
+      </div>
+
+      <div class="mb-3 row">
+        <label for="lpstock" class="col-sm-2 m-1 col-form-label">Stock</label>
+        <div class="col-sm-10">
+          <input type="number" formControlName="stock" class="form-control" id="lpstock">
+        </div>
+      </div>
+  </form>
+  
+  </div>  
+
+</div>
+
+
